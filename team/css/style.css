@@ -1,0 +1,184 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*this code aligns the class (main) to the center of the page or as desired through the code-----
+    you can set a background to it to view the effect
+*/
+.main{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 110px;
+    
+}
+
+/*this is a simple code that displays all the child elements of the crew class =>(img) to grid form
+ => "display:grid" tells css to display all the img classes to grid
+ => grid-template-columns seperates the divs (img) classes into three columns as indicated in the code "repeat(3,1fr)"
+    1fr is equivalent to a fraction of the space given, you can get thesame result with "grid-template-columns:1fr 1fr 1fr;"
+    you can have as many fractions as you want, in our case we only need three.
+ => grid-auto-rows with a value of "24em" indicates the height of each div (img) element 
+*/
+.crew{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: 24em;
+    
+}
+
+/*
+  => set a mrgin of 20px to the (img) class to view the gap between them, you can achieve same reult 
+     by setting "grid-gap:20px;" or any other value on the class (crew) above.
+  => set a desired background to view the result.
+*/
+.img{
+    margin: 20px;
+    background-color: rgb(255, 0, 140);
+}
+
+/* the divs have been named (img1) to (img6) respectively for easy identification and manipulations
+  => set a background each of this classes randomly so as to get the exact one you'll want to transform as i may not
+     be able to give you all the details here. in our case we need the two middle classes as indicated by the code 
+     below...
+  => the "transform: translateY(6em);" attribute moves the classes downwards through the Y-axis as shown in the code.
+*/
+.img2, .img5{
+    background-color: rgb(65, 121, 70);
+    transform: translateY(6em);
+ 
+ }
+
+ /*styling code for the welcome text*/
+
+ .crew_info{
+    display: flex;
+    height: 9em;
+    width: 100%;
+}
+
+.crew_info h2{
+    width: 70%;
+}
+
+.crew_about p{
+    margin-top: 20px;
+}
+
+h1{
+    color: #fff;
+    text-align: center;
+    margin-top: 140px;
+}
+
+/*Adding a little animation to the design,, I am not going in details on how it works as it is not the central
+    theme of this post. You can look up a few resources on css animations for better understanding. nevetheless, 
+    the animation used here can easily be comprehended.
+*/
+
+
+@keyframes slide_down{
+    from{
+        transform: translateY(-150px);
+    }to{
+        transform: translateY(0px);
+    }
+}
+
+@keyframes slide_up{
+    from{
+        transform: translateY(150px);
+    }to{
+        transform: translateY(0px);
+    }
+}
+
+.anim_right{
+    animation-name: slide_down;
+    animation-iteration-count: 1;
+    animation-duration: 4s;
+    
+}
+
+.anim_left{
+    animation-name: slide_up;
+    animation-iteration-count: 1;
+    animation-duration: 4s;
+    
+}
+
+
+
+ /*CSS styling to make the page responsive using media query*/
+
+/*In declaring media query, you start with the following keywords..make sure the spaces you see in the code
+     are maintained
+   => you may not get your desired result if you do otherwise...you can tweak the code to see how it works
+   => "@media" tells Css you are about to write a media query
+   => "(max-width:768px)" tells css that if the screen is resize to "768" and below,,you'd want the 
+       following actions take place.......... as in the codes below
+   => from here you can grap all the classes you want to adjust to fit into specifications
+*/
+
+
+@media (max-width:768px){
+    /*Here the with is set to 95% to have a cleaner view of the elements with the width set to auto to centralize our elements*/
+    .main{
+        width: 95%;
+        margin: 0 auto;
+        
+    }
+
+    /*restyling our grid class to take a different look on mobile
+      => "grid-template-columns: 1fr;" is set to 1fr so as to have just a single card view
+      => "grid-auto-rows" is maintained as shown
+    */
+    .crew{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 24em;
+        
+    }
+
+    /*class img is set to a margin of 10px to obtain spaces between each grid*/
+    .img{
+        margin: 10px;
+    }
+
+    /* "transform: translateY(0.1em);" is applied here to overide the effect of the initial 
+        code on class (img2) and (img5) as shown above
+        
+    */
+    .img2, .img5{
+   
+        transform: translateY(0.1em);
+     
+     }
+
+     /*the codes below is meant for styling the text elements in the page
+       take some time to go through it and adjust to your desired style
+     */
+     .crew_info{
+        display: inline;
+        
+     }
+     
+     .crew_info h2{
+        padding-left: 10px;
+        width: max-content;
+        margin-top: 20px;
+     }
+ 
+     .crew_about h4{
+         display: none;
+         width: 100%;
+     }
+     
+     .crew_about p{
+         padding:15px 0px 10px 10px;
+         width: 90%;
+         line-height: 20px;
+     }
+}
