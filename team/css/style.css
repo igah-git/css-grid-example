@@ -78,7 +78,7 @@ h1{
     the animation used here can easily be comprehended.
 */
 
-
+/*
 @keyframes slide_down{
     from{
         transform: translateY(-150px);
@@ -109,7 +109,7 @@ h1{
     
 }
 
-
+*/
 
  /*CSS styling to make the page responsive using media query*/
 
